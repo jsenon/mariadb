@@ -1,0 +1,18 @@
+---
+- hosts: db 
+  sudo: yes
+  vars:
+    mariadb_root_password: test 
+    mariadb_version_major: 22
+  roles:
+    - mariadb
+  post_tasks:
+    - name: fetch mysql version
+      shell: mysql -u root -ptest -e "select version()"
+      register: mysql_version
+      changed_when: False
+
+    - name: check for version
+      debug: var=mysql_version
+  environment:
+    http_proxy: http://fr0-vmtest-8002:3131
