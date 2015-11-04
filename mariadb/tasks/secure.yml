@@ -21,7 +21,8 @@
 - name: grant root access
   mysql_user:
     login_user: root
-    login_password: "{{ mariadb_root_password }}"
+    login_password: "" 
+    #login_password: "{{ mariadb_root_password }}"
     user: root
     host: "{{ item }}"
     password: "{{ mariadb_root_password }}"

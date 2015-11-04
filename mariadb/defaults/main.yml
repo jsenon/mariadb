@@ -24,7 +24,7 @@ mariadb_root_password: root
 # This could be dangerous to apply on a production system, since it will
 # automatically reset the root password and interrupt the service (service
 # restart)
-mariadb_initialize_root: False
+mariadb_initialize_root: True
 
 
 ## TOKUDB ##
